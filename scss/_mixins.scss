@@ -1,0 +1,39 @@
+@use 'variables';
+
+@mixin desktop-view($width: 1270px, $height: unset, $f-size: unset) {
+    @media (min-width: 1270px){        
+        width: $width;  
+        height: $height; 
+        font-size: $f-size;     
+    }
+}
+
+@mixin button{
+    background-color: variables.$Bright-Blue;
+    color: variables.$Light-Grayish-Blue;
+    font-family: variables.$Headings-font;
+    font-weight: 700;
+    font-size: 0.9em;
+    border: none;
+    letter-spacing: 1.5px;
+    &:hover{
+        cursor: pointer;
+        filter: brightness(120%);
+    }
+}
+
+@mixin ilustration-1-desktop-view{
+    @media (min-width: 1270px){
+        width: 600px;
+    }
+}
+
+@mixin section-desktop-view{
+    @media (min-width: 1270px){
+        display: flex;         
+        flex-direction: row-reverse; 
+        align-items: center; 
+        gap: 50px;                   
+    } 
+}
+

@@ -1,0 +1,254 @@
+@use 'variables';
+@use 'initial';
+@use 'mixins';
+@use 'card';
+@use 'footer';
+
+.main-container{    
+    width: 375px;
+    margin: auto; 
+    @include mixins.desktop-view;   
+}
+.navbar{    
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 24px 0;
+    margin-bottom: 100px;
+    &__logo{
+        width: 80px;
+        height: 25px;
+        @include mixins.desktop-view(170px);
+    }
+    &__nav-container{        
+        display: flex;
+        width: 180px;
+        font-size: 0.9em;
+        justify-content: space-between;        
+        @include mixins.desktop-view(274px, unset, 1em);
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            &:hover{
+                color: variables.$Very-Dark-Blue;
+            }
+        }
+    }
+}
+.header{    
+    padding: 0 24px 182px;
+    background: {
+        image: url(./images/bg-curve-mobile.svg);
+        repeat: no-repeat;
+        position-y: bottom;
+    }
+
+    @include mixins.section-desktop-view;
+
+    &__illustration-1{
+        width: 100%;
+        margin-bottom: 40px;
+        @include mixins.ilustration-1-desktop-view;
+    }
+    .header-content{
+        &__title{
+            font-size: 1.5em;
+            font-family: variables.$Headings-font;
+            text-align: center;
+            line-height: 35px;
+            margin-bottom: 30px;
+            font-weight: 700;            
+        }  
+        &__description{
+            text-align: center;
+            font-size: 0.95em;
+            margin-bottom: 30px;  
+            font-weight: 400;      
+        }
+        &__form{            
+            display: flex;
+            flex-direction: column;
+            height: 100px;
+            justify-content: space-between;
+        }
+        &__form input{
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid variables.$Light-Gray;
+        }
+        &__form input[type="text"]{
+            padding-left: 15px;            
+        }
+        &__form input[type="text"]::placeholder{
+            color: variables.$Light-Gray;
+            font-family: variables.$Body-font;
+        }
+        &__form input[type="submit"]{
+            @include mixins.button;
+        }
+    }
+}
+@media (min-width: 1270px){
+    .header{    
+        background-image: url(./images/bg-curve-desktop.svg); 
+        height: 720px; 
+        .header-content{
+            width: 590px;            
+            &__title{                               
+                text-align: left;
+                font-size: 2.5em;
+                line-height: 50px;
+            } 
+            &__description{
+                text-align: left;
+                font-size: 1.15em;                
+            }  
+            &__form{                
+                flex-direction: row;
+                width: 520px;
+                height: 50px;
+            }  
+            &__form input{                
+                flex-grow: 1;
+                margin-right: 15px;
+            }     
+        }                  
+    } 
+}
+
+.details{    
+    height: 900px;
+    padding: 0 24px;
+    @include mixins.section-desktop-view;
+    background-color: variables.$Light-Grayish-Blue;
+    &__illustration-2{
+        width: 100%;
+        margin-bottom: 80px;
+        @include mixins.ilustration-1-desktop-view;
+    }
+    .details-content{
+        &__title{
+            font: 1em;
+            font-family: variables.$Headings-font;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        &__paragraph{
+            margin-bottom: 25px;
+            line-height: 20px;
+            font-size: 0.86em;
+        }
+        &__link{            
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            color: variables.$Moderate-yan;
+        }
+    }
+}
+
+@media (min-width: 1270px){
+    .details{
+        height: 670px;
+        &__illustration-2{
+            width: 550px;
+        }
+        .details-content{            
+            &__title{
+                text-align: left;
+                font-size: 2.4em;
+            } 
+            &__paragraph{
+                width: 520px;
+                font-size: 1em;
+                line-height: 25px;
+            } 
+            &__link{
+                text-align: left;                
+            }          
+        }
+    }
+}
+.early-access{     
+    background-color: variables.$Desaturated-Blue;
+    color: variables.$Light-Grayish-Blue; 
+    padding: 58px 62px 69px 38px;
+    &__title{
+        text-align: center;
+        font-size: 1.2em;
+        margin-bottom: 25px;        
+    }
+    &__description{
+        text-align: center;
+        font-size: 0.9em;
+        margin-bottom: 25px;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        gap: 12px; 
+        align-items: center;           
+    }
+    &__form input{
+        height: 35px;
+        width: 250px;
+        border-radius: 4px;
+        border: 1px solid variables.$Light-Gray;
+    }
+    &__form input[type="text"]::placeholder{
+        color: variables.$Light-Gray;
+        font-family: variables.$Body-font;
+    }
+    &__form input[type="submit"]{
+        background-color: variables.$Bright-Blue;
+        color: variables.$Light-Grayish-Blue;
+        font-family: variables.$Headings-font;
+        font-weight: 700;
+        font-size: 0.8em;
+        border: none;
+        letter-spacing: 1.5px;
+        &:hover{
+        cursor: pointer;
+        filter: brightness(120%);
+        }
+    }    
+}
+
+@media (min-width: 1270px){
+    .early-access{
+        display: flex;
+        gap: 120px;
+        &__title, &__description{
+            text-align: left;
+        } 
+        &__title{
+            font-size: 1.7m;
+            letter-spacing: 1px;
+        }
+        &__form{            
+            width: 480px; 
+            height: 110px;
+            display: grid;
+            margin-left: 0;
+        }
+        &__form input[type="text"]{
+            width: 100%;            
+        }
+        .input__submit{
+            width: 50%; 
+                    
+        }        
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;    
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
